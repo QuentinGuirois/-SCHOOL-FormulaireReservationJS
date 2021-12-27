@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<form onsubmit="verif()" id="formulaire" method="POST" action="" enctype="multipart/form-data">
+  
+  <!--InfosDeBase-->
+  <fieldset>
+    <h2>Formulaire de réservation</h2>
+    <p>(*=champ obligatoire)</p>
+    <ul>
+      <li>
+        <label for="nom">Nom* :</label>
+        <input required placeholder="Votre nom ici" value="" type="text" id="nom" name="nom" onkeyup="this.value=this.value.toUpperCase()" />
+      </li>
+      <li>
+        <label for="prenom">Prénom :</label>
+        <input placeholder="Votre Prénom ici" type="text" id="prenom" name="prenom" />
+      </li>
+      <li>
+        <label for="email">Email* :</label>
+        <input required placeholder="xxx@yyy.zz" type="email" id="email" name="email" />
+      </li>
+      <li>
+        <label for="telephone">Téléphone:</label>
+        <input placeholder="0123456789" size="10" maxlength="10" type="tel" id="telephone" name="telephone" />
+                            
+      </li>
+    </ul>
+    <div id="choix">
+      <label for="requete1">Votre réservation est pour :</label>
+      <select onchange="calculer()" id="service1" class="service" name="requete1">
+        <option value="8">Demi-journée</option>
+        <option value="15">Journée</option>
+        <option value="7">Repas</option>
+      </select>
+      <input placeholder="Qté" oninput="calculer()" type="number" min="0" id="qte1" name="qte1" />
+      <input placeholder="" type="text" min="0" id="prix1" class="prixHt" name="output" disabled/>
+      <br />
+      <label for="requete2"></label>
+      <select onchange="calculer()" id="service2" class="service" name="requete2">
+        <option value="15">Journée</option>
+        <option value="8">Demi-journée</option>
+        <option value="7">Repas</option>
+      </select>
+      <input placeholder="Qté" type="number" oninput="calculer()" min="0" id="qte2" name="qte2" />
+      <input placeholder="" type="text" min="0" id="prix2" class="prixHt" name="output" disabled/>
+      <br />
+      <label for="requete3"></label>
+      <select onchange="calculer()" id="service3" class="service" name="requete3">
+        <option value="7">Repas</option>
+        <option value="15">Journée</option>
+        <option value="8">Demi-journée</option>
+      </select>
+      <input placeholder="Qté" type="number" oninput="calculer()" min="0" id="qte3" name="qte3" />
+      <input placeholder="" type="text" min="0" id="prix3" class="prixHt" name="output" disabled/>
+      <br />
+    </div>
+    <ul>
+      <li>
+        <label for="prixHt">Sous-total HT:</label>
+        <input placeholder="Sous-total HT" class="champsGris" type="text" id="totalHt" name="totalHt" disabled="disabled"/>
+        <span>euros</span> </li>
+      <li>
+        <label for="prixTtc">Total TTC (TVA 20%):</label>
+        <input placeholder="Total TTC" type="text" class="champsGris" id="totalTtc" name="totalTtc" disabled="disabled"/>
+        <span>euros</span> </li>
+      <li>
+        <label requiered for="checkbox">J'accepte les conditions générales*</label>
+        <input requiered type="checkbox" id="checkbox" name="checkbox" />
+      </li>
+    </ul>
+    <div id="button">
+      <input id="reset" type="reset" value="Reinitialiser">
+      <input id="envoi" type="submit" value="Envoyer ma commande">
+      <input id="verif" type="button" value="Vérifier avant envoi">
+      <input id="print" type="button" value="Imprimer" onclick="window.print()">
+    </div>
+  </fieldset>
+</form>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
